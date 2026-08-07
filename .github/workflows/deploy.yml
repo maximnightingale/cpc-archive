@@ -25,11 +25,13 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
+        with:
+          version: 11
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 26.x   # 明确指定 26.x，自动获取最新补丁
           cache: pnpm
 
       - name: Setup Pages
