@@ -1,6 +1,9 @@
 ---
 layout: false
 ---
+
 <script>
-  window.location.href = '/'
+if (typeof window !== 'undefined') {
+  window.location.href = "/";
+}
 </script>

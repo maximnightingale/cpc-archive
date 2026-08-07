@@ -2,7 +2,6 @@
 sidebar: false
 next: false
 navbar: false
-client: true
 ---
 
 <style>
