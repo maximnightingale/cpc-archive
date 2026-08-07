@@ -90,9 +90,9 @@ navbar: false
     <div class="group-tag">Ⅰ · 1977—1992</div>
     <div class="group-label">改革开放和社会主义现代化建设新时期</div>
     <div class="links">
-      <a href="/11">十一大</a>
-      <a href="/12">十二大</a>
-      <a href="/13">十三大</a>
+      <a href="./11">十一大</a>
+      <a href="./12">十二大</a>
+      <a href="./13">十三大</a>
     </div>
   </div>
 
@@ -100,10 +100,10 @@ navbar: false
     <div class="group-tag">Ⅱ · 1992—2012</div>
     <div class="group-label">把建设有中国特色社会主义事业全面推向二十一世纪</div>
     <div class="links">
-      <a href="/14">十四大</a>
-      <a href="/15">十五大</a>
-      <a href="/16">十六大</a>
-      <a href="/17">十七大</a>
+      <a href="./14">十四大</a>
+      <a href="./15">十五大</a>
+      <a href="./16">十六大</a>
+      <a href="./17">十七大</a>
     </div>
   </div>
 
@@ -111,9 +111,9 @@ navbar: false
     <div class="group-tag">Ⅲ · 2012—今</div>
     <div class="group-label">中国特色社会主义进入新时代</div>
     <div class="links">
-      <a href="/18">十八大</a>
-      <a href="/19">十九大</a>
-      <a href="/20">二十大</a>
+      <a href="./18">十八大</a>
+      <a href="./19">十九大</a>
+      <a href="./20">二十大</a>
     </div>
   </div>
 
