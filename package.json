@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vitepress dev",
-    "build": "vitepress build && cp -r .vitepress/.temp .temp_backup_late",
+    "build": "vitepress build",
     "preview": "vitepress preview"
   },
   "devDependencies": {
