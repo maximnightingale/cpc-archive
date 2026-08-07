@@ -5,6 +5,7 @@ import { back2topPlugin } from 'vitepress-plugin-back2top'
 
 export default defineConfig(
   withLangSearch({
+    base: '/cpc-archive/',
     title: "cpc-archive",
     description: "整理自中共十一大以来历届党的相关会议资料",
     markdown: {
@@ -25,6 +26,7 @@ export default defineConfig(
     locales: {
       root: defineLangConfig('zh', {
         path: '/',
+        link: '/',
         label: '简体中文',
         lang: 'zh-CN',
         themeConfig: {
