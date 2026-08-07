@@ -1,0 +1,23 @@
+{
+  "name": "cpc-archive",
+  "version": "1.0.0",
+  "description": "整理自中共十一大以来历届党的相关会议资料",
+  "license": "MIT",
+  "author": "天地之大德曰生",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "markdown-it-image-figures": "^2.1.1",
+    "typescript": "^7.0.2",
+    "vitepress": "^1.6.4",
+    "vitepress-lang": "^0.3.0",
+    "vitepress-plugin-back2top": "^0.1.4"
+  }
+}

@@ -1,0 +1,82 @@
+/* 全局背景与字体 */
+body {
+  background-color: #fafafa;
+  font-family: 'Times New Roman', 'Noto Serif SC', serif;
+}
+
+:root {
+  --vp-header-anchor-symbol: '';
+}
+
+/* 加粗：font-weight 声明 + stroke 物理增粗 */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc h5,
+.vp-doc h6,
+.vp-doc strong,
+.vp-doc b {
+  font-weight: 700 !important;
+  -webkit-text-stroke: 0.6px;
+}
+
+.vp-doc h2,
+.vp-doc h3 {
+  -webkit-text-stroke: 0.8px;
+}
+
+/* 一级标题居中 */
+.vp-doc h1 {
+  text-align: center;
+}
+
+/* 隐藏原有的标题文字 */
+.VPNavBarTitle .title {
+  font-size: 0 !important;
+}
+
+.VPNavBarTitle .title::before {
+  content: "☭";
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+/* 副标题 */
+.vp-doc h1 ~ p:has(em) {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--vp-c-text-2);
+  margin-top: -0.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 图片容器 */
+.vp-doc figure {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.vp-doc figure img {
+  display: block;
+  margin: 0 auto;
+}
+
+.vp-doc figcaption {
+  font-size: 0.85em;
+  font-weight: 300;
+  text-align: center;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* 标题内的链接继承标题样式 */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover {
+  opacity: 0.7;
+}
