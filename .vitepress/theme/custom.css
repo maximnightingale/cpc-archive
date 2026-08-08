@@ -1,4 +1,6 @@
-/* 全局背景与字体 */
+/**
+ * 全局样式
+ */
 body {
   background-color: #fafafa;
   font-family: 'Times New Roman', 'Noto Serif SC', serif;
@@ -8,7 +10,10 @@ body {
   --vp-header-anchor-symbol: '';
 }
 
-/* 加粗：font-weight 声明 + stroke 物理增粗 */
+/**
+ * 标题与加粗增强
+ */
+/* 强制加粗并补偿衬线字体视觉变细 */
 .vp-doc h1,
 .vp-doc h2,
 .vp-doc h3,
@@ -26,16 +31,15 @@ body {
   -webkit-text-stroke: 0.8px;
 }
 
-/* 一级标题居中 */
+/* 一级标题 */
 .vp-doc h1 {
   text-align: center;
 }
 
-/* 隐藏原有的标题文字 */
+/* 导航栏标题 */
 .VPNavBarTitle .title {
   font-size: 0 !important;
 }
-
 .VPNavBarTitle .title::before {
   content: "☭";
   font-size: 3rem;
@@ -52,17 +56,17 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* 图片容器 */
+/**
+ * 图片
+ */
 .vp-doc figure {
   margin-top: 2rem;
   text-align: center;
 }
-
 .vp-doc figure img {
   display: block;
   margin: 0 auto;
 }
-
 .vp-doc figcaption {
   font-size: 0.85em;
   font-weight: 300;
@@ -71,12 +75,63 @@ body {
   margin-top: 0.5rem;
 }
 
-/* 标题内的链接继承标题样式 */
+/**
+ * 标题链接
+ */
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   text-decoration: none !important;
   color: inherit !important;
 }
-
 h1 a:hover, h2 a:hover, h3 a:hover {
   opacity: 0.7;
 }
+
+/**
+ * 无序列表
+ */
+/* 一级列表 */
+.vp-doc ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+.vp-doc li {
+  position: relative;
+  padding-left: 2em !important;
+  margin-bottom: 0;
+  border-bottom: 1px dashed rgba(0,0,0,0.07);
+  line-height: 1.7;
+}
+.vp-doc li::before {
+  content: "·";
+  position: absolute;
+  left: 0.2em;
+  color: #bbb;
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+/* 避免与外部容器分隔线重叠 */
+.vp-doc li:last-child {
+  border-bottom: none !important;
+}
+
+/* 二级列表 */
+.vp-doc ul ul {
+  padding-left: 1.8em !important;
+}
+.vp-doc ul ul li {
+  border-bottom: none !important;
+  padding-left: 2em !important;
+  margin-bottom: 0.3em;
+}
+.vp-doc ul ul li::before {
+  content: "◦";
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/**
+ * 自定义分隔线
+ */
+.vp-doc hr {
+  margin-bottom: 36px;
+]
