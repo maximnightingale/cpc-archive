@@ -9,4 +9,5 @@ node_modules/
 .vscode/
 .idea/
 .temp/
-full.js
+1.cjs
+1.txt
