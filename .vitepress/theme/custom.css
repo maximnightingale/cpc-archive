@@ -1,6 +1,7 @@
-/**
- * 全局样式
- */
+/* ==========================================================================
+   基础配置
+   ========================================================================== */
+
 body {
   background-color: #fafafa;
   font-family: 'Times New Roman', 'Noto Serif SC', serif;
@@ -10,7 +11,10 @@ body {
   --vp-header-anchor-symbol: '';
 }
 
-/* 导入字体 */
+/* ==========================================================================
+   字形
+   ========================================================================== */
+
 @font-face {
   font-family: '仓耳今楷03-W03';
   src: url('/fonts/仓耳今楷03-W03.ttf') format('truetype');
@@ -23,6 +27,15 @@ body {
   font-display: swap;
 }
 
+/* ==========================================================================
+   正文
+   ========================================================================== */
+
+.vp-doc p {
+  margin: 0.75rem;
+  line-height: 1.6;
+}
+
 .vp-doc p,
 .vp-doc h1,
 .vp-doc h2,
@@ -32,63 +45,37 @@ body {
   font-family: '仓耳今楷03-W03', 'Times New Roman', 'Noto Serif SC', serif;
 }
 
-/* 签名块字体 */
 .sig-content > p {
   font-family: '仓耳今楷04-W04', 'Times New Roman', 'Noto Serif SC', serif;
 }
 
-/**
- * 自定义 class
- */
-/* 签名容器 - 含 margin/padding 重置 */
-.sig-block-a {
-  display: flex;
-  justify-content: flex-end;
-  margin: 0;
-  padding: 0;
-}
-/* 签名容器 - 不含重置 */
-.sig-block-b {
-  display: flex;
-  justify-content: flex-end;
-}
-/* 签名内容 - 居中文本，最大宽度 80% */
-.sig-content {
-  max-width: 80%;
+/* ==========================================================================
+   标题
+   ========================================================================== */
+
+/* 一级标题 */
+.vp-doc h1 {
   text-align: center;
-  margin: 0;
-  padding: 0;
-}
-/* 居中文本 */
-.text-center {
-  text-align: center;
-}
-/* 居中文本 - 带底部间距 */
-.text-center-lg {
-  text-align: center;
-  margin-bottom: 1em;
-}
-/* blockquote 负上边距 */
-.blockquote-offset {
-  margin-top: -1em;
 }
 
-/* 签名正文 */
-.sig-text {
-  margin: 0;
-  padding: 0;
-}
-
-/* 副标题（报告名） */
-.subtitle {
+/* 副标题 */
+.vp-doc h1 ~ p:has(em) {
   text-align: center;
-  margin-bottom: -0.1rem;
-  font-size: 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--vp-c-text-2);
+  margin-top: -0.1rem;
+  margin-bottom: 1.5rem;
 }
 
-/**
- * 标题与加粗增强
- */
+/* 二级标题 */
+.vp-doc h2 {
+  margin: 2rem 0 0;
+  padding-top: 24px;
+  border-top-width: 1px;
+}
+
+/* 粗体 */
 .vp-doc h1,
 .vp-doc h2,
 .vp-doc h3,
@@ -102,77 +89,57 @@ body {
   -webkit-text-stroke: 0.8px;
 }
 
-/* 一级标题 */
-.vp-doc h1 {
-  text-align: center;
-}
-
-/* 导航栏标题 */
-.VPNavBarTitle .title {
-  font-size: 0 !important;
-}
-.VPNavBarTitle .title::before {
-  content: "☭";
-  font-size: 3rem;
-  font-weight: 600;
-}
-
-/* 副标题 */
-.vp-doc h1 ~ p:has(em) {
-  text-align: center;
-  font-size: 0.85rem;
-  font-weight: 300;
-  color: var(--vp-c-text-2);
-  margin-top: -0.1rem;
-  margin-bottom: 1.5rem;
-}
-
-/**
- * 图片
- */
-.vp-doc figure {
-  margin-top: 2rem;
-  text-align: center;
-}
-.vp-doc figure img {
-  display: block;
-  margin: 0 auto;
-}
-.vp-doc figcaption {
-  font-size: 0.85em;
-  font-weight: 300;
-  text-align: center;
-  color: #666;
-  margin-top: 0.5rem;
-}
-
-/**
- * 标题链接
- */
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+/* 标题锚点链接 */
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
   text-decoration: none !important;
   color: inherit !important;
 }
-h1 a:hover, h2 a:hover, h3 a:hover {
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover {
   opacity: 0.7;
 }
 
-/**
- * 无序列表
- */
+/* ==========================================================================
+   引用与分隔
+   ========================================================================== */
+
+/* 引用块 */
+.vp-doc blockquote.blockquote-offset {
+  margin-top: -1em;
+  margin-bottom: 0;
+}
+
+/* 水平分隔线 */
+.vp-doc hr {
+  margin: 2px 0;
+}
+
+/* ==========================================================================
+   列表
+   ========================================================================== */
+
 /* 一级列表 */
 .vp-doc ul {
   list-style: none !important;
   padding-left: 0 !important;
 }
+
 .vp-doc li {
   position: relative;
   padding-left: 2em !important;
   margin-bottom: 0;
   padding-bottom: 0.25rem;
-  border-bottom: 1px dashed rgba(0,0,0,0.07);
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.07);
   line-height: 1.7;
 }
+
 .vp-doc li::before {
   content: "·";
   position: absolute;
@@ -181,7 +148,7 @@ h1 a:hover, h2 a:hover, h3 a:hover {
   font-size: 1.2rem;
   line-height: 1.7;
 }
-/* 避免与外部容器分隔线重叠 */
+
 .vp-doc li:last-child {
   border-bottom: none !important;
 }
@@ -190,20 +157,193 @@ h1 a:hover, h2 a:hover, h3 a:hover {
 .vp-doc ul ul {
   padding-left: 1.8em !important;
 }
+
 .vp-doc ul ul li {
   border-bottom: none !important;
   padding-left: 2em !important;
   margin-bottom: 0.3em;
 }
+
 .vp-doc ul ul li::before {
   content: "◦";
   font-size: 1rem;
   color: #ccc;
 }
 
-/**
- * 自定义分隔线
- */
-.vp-doc hr {
-  margin-bottom: 36px;
+/* ==========================================================================
+   图片
+   ========================================================================== */
+
+.vp-doc figure {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.vp-doc figure img {
+  display: block;
+  margin: 0 auto;
+}
+
+.vp-doc figcaption {
+  font-size: 0.85em;
+  font-weight: 300;
+  text-align: center;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   导航栏
+   ========================================================================== */
+
+/* 导航栏标题：隐藏默认文本，替换为符号 */
+.VPNavBarTitle .title {
+  font-size: 0 !important;
+}
+
+.VPNavBarTitle .title::before {
+  content: "☭";
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   辅助类
+   ========================================================================== */
+
+/* 署名 */
+.sig-block-a {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+
+.sig-block-b {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sig-content {
+  max-width: 80%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.sig-text {
+  margin: 0;
+  padding: 0;
+}
+
+/* 副标题 */
+.subtitle {
+  text-align: center;
+  margin-bottom: -0.1rem;
+  font-size: 1.25rem;
+}
+
+/* 文本对齐类 */
+.text-center {
+  text-align: center;
+}
+
+.text-center-lg {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+/* ==========================================================================
+   首页布局
+   ========================================================================== */
+
+.home-page {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 0 24px;
+  color: #2a2a2a;
+}
+
+.home-page .VPLocalNav {
+  display: none !important;
+}
+
+/* 说明文字 */
+.home-page .header {
+  text-align: center;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.home-page .header p {
+  color: #666;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  margin: 0;
+  font-family: 'Times New Roman', serif;
+}
+
+/* 分组容器 */
+.home-page .group {
+  padding: 20px 0;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.home-page .group:last-of-type {
+  border-bottom: none;
+}
+
+/* 分组标签 */
+.home-page .group-tag {
+  font-size: 0.7rem;
+  color: #999;
+  letter-spacing: 0.08em;
+  font-family: 'Times New Roman', serif;
+}
+
+/* 分组标题 */
+.home-page .group-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  font-family: 'Times New Roman', serif;
+  margin-bottom: 6px;
+}
+
+/* 链接列表 */
+.home-page .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin-top: 4px;
+}
+
+.home-page .links a {
+  display: inline-block;
+  color: #555;
+  font-size: 1rem;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  font-family: 'Times New Roman', serif;
+  letter-spacing: 0.03em;
+  padding: 2px 0;
+}
+
+.home-page .links a:hover {
+  color: #222;
+  border-bottom-color: #aaa;
+}
+
+/* 页脚 */
+.home-page .footer {
+  text-align: center;
+  color: #ccc;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  margin-top: 56px;
+  padding-top: 8px;
+  font-family: 'Times New Roman', serif;
 }
