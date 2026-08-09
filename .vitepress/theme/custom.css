@@ -29,11 +29,11 @@ body {
 .vp-doc h3,
 .vp-doc strong,
 .vp-doc b {
-  font-family: '仓耳今楷03-W03'
+  font-family: '仓耳今楷03-W03', 'Times New Roman', 'Noto Serif SC', serif;
 }
 
 .vp-doc div[style*="flex-end"] > div > p {
-  font-family: '仓耳今楷04-W04'
+  font-family: '仓耳今楷04-W04', 'Times New Roman', 'Noto Serif SC', serif;
 }
 
 /**
