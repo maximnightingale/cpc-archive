@@ -32,8 +32,58 @@ body {
   font-family: '仓耳今楷03-W03', 'Times New Roman', 'Noto Serif SC', serif;
 }
 
-.vp-doc div[style*="flex-end"] > div > p {
+/* 签名块字体 */
+.sig-content > p {
   font-family: '仓耳今楷04-W04', 'Times New Roman', 'Noto Serif SC', serif;
+}
+
+/**
+ * 自定义 class
+ */
+/* 签名容器 - 含 margin/padding 重置 */
+.sig-block-a {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+/* 签名容器 - 不含重置 */
+.sig-block-b {
+  display: flex;
+  justify-content: flex-end;
+}
+/* 签名内容 - 居中文本，最大宽度 80% */
+.sig-content {
+  max-width: 80%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+/* 居中文本 */
+.text-center {
+  text-align: center;
+}
+/* 居中文本 - 带底部间距 */
+.text-center-lg {
+  text-align: center;
+  margin-bottom: 1em;
+}
+/* blockquote 负上边距 */
+.blockquote-offset {
+  margin-top: -1em;
+}
+
+/* 签名正文 */
+.sig-text {
+  margin: 0;
+  padding: 0;
+}
+
+/* 副标题（报告名） */
+.subtitle {
+  text-align: center;
+  margin-bottom: -0.1rem;
+  font-size: 1.25rem;
 }
 
 /**

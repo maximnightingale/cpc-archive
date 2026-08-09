@@ -1,6 +1,5 @@
 ---
 sidebar: false
-next: false
 navbar: false
 ---
 
