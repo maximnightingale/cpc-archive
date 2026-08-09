@@ -10,18 +10,39 @@ body {
   --vp-header-anchor-symbol: '';
 }
 
-/**
- * 标题与加粗增强
- */
-/* 强制加粗并补偿衬线字体视觉变细 */
+/* 导入字体 */
+@font-face {
+  font-family: '仓耳今楷03-W03';
+  src: url('/fonts/仓耳今楷03-W03.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: '仓耳今楷04-W04';
+  src: url('/fonts/仓耳今楷04-W04.ttf') format('truetype');
+  font-display: swap;
+}
+
+.vp-doc p,
 .vp-doc h1,
 .vp-doc h2,
 .vp-doc h3,
-.vp-doc h4,
-.vp-doc h5,
-.vp-doc h6,
 .vp-doc strong,
 .vp-doc b {
+  font-family: '仓耳今楷03-W03'
+}
+
+.vp-doc div[style*="flex-end"] > div > p {
+  font-family: '仓耳今楷04-W04'
+}
+
+/**
+ * 标题与加粗增强
+ */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc strong {
   font-weight: 700 !important;
   -webkit-text-stroke: 0.6px;
 }
