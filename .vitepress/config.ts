@@ -63,18 +63,6 @@ export default defineConfig(
       plugins: [
         back2topPlugin()
       ]
-    },
-    transformHead({ assets }) {
-      const font03 = assets.find(f => f.includes('仓耳今楷03-W03.ttf'))
-      const font04 = assets.find(f => f.includes('仓耳今楷04-W04.ttf'))
-      const links = []
-      if (font03) {
-        links.push(['link', { rel: 'preload', href: font03, as: 'font', type: 'font/ttf', crossorigin: '' }])
-      }
-      if (font04) {
-        links.push(['link', { rel: 'preload', href: font04, as: 'font', type: 'font/ttf', crossorigin: '' }])
-      }
-      if (links.length) return links
     }
   })
 )
