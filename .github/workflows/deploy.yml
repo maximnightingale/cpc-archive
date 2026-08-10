@@ -53,6 +53,8 @@ jobs:
 
       - name: Build with VitePress
         run: pnpm run build
+        env:
+          SITE_URL: https://maximnightingale.github.io
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

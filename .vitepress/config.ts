@@ -11,6 +11,9 @@ export default defineConfig(
     base: basePath,
     title: "cpc-archive",
     description: "整理自中共十一大以来历届党的相关会议资料",
+    sitemap: {
+      hostname: process.env.SITE_URL
+    },
     markdown: {
       config: (md) => {
         md.use(imageFigures, {
