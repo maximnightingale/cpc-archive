@@ -12,7 +12,7 @@ export default defineConfig(
     title: "cpc-archive",
     description: "整理自中共十一大以来历届党的相关会议资料",
     sitemap: {
-      hostname: process.env.SITE_URL
+      hostname: process.env.SITE_URL || "http://127.0.0.1:5173"
     },
     markdown: {
       config: (md) => {
