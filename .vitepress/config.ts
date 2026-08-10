@@ -3,9 +3,12 @@ import imageFigures from 'markdown-it-image-figures'
 import { defineLangConfig, withLangSearch } from 'vitepress-lang'
 import { back2topPlugin } from 'vitepress-plugin-back2top'
 
+const isGitHubActions = process.env.GITHUB_ACTIONS === 'true'
+const basePath = isGitHubActions ? '/cpc-archive/' : '/'
+
 export default defineConfig(
   withLangSearch({
-    base: '/cpc-archive/',
+    base: basePath,
     title: "cpc-archive",
     description: "整理自中共十一大以来历届党的相关会议资料",
     markdown: {
