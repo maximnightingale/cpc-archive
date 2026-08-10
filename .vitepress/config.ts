@@ -58,9 +58,6 @@ export default defineConfig(
           footer: false,
           notFound: {
             link: '/'
-          },
-          font: {
-            google: false
           }
         }
       })

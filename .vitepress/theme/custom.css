@@ -8,8 +8,7 @@ body {
 }
 
 :root {
-  --vp-header-anchor-symbol: '';
-  --vp-font-family-base: '仓耳今楷03-W03', '仓耳今楷04-W04', 'Times New Roman', serif;
+  --vp-header-anchor-symbol: ''
 }
 
 /* ==========================================================================
