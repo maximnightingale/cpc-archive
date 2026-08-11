@@ -7,11 +7,11 @@ const isGitHubActions = process.env.GITHUB_ACTIONS === 'true'
 const basePath = isGitHubActions ? '/cpc-archive/' : '/'
 
 const fontPreloads = [
-  ['link', { rel: 'preload', href: '/fonts/方正新舒体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: '/fonts/TrajanPro3-Semibold.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: '/fonts/华光毛体行楷.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: '/fonts/方正小标宋简体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: '/fonts/马善政毛笔楷书.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }]
+  ['link', { rel: 'preload', href: '../fonts/方正新舒体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'preload', href: '../fonts/TrajanPro3-Semibold.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'preload', href: '../fonts/华光毛体行楷.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'preload', href: '../fonts/方正小标宋简体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'preload', href: '../fonts/马善政毛笔楷书.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }]
 ]
 
 export default defineConfig(
