@@ -56,32 +56,32 @@ body {
 @font-face {
   font-family: '方正新舒体';
   src: url('/fonts/方正新舒体.woff2') format('woff2');
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: 'Trajan Pro';
   src: url('/fonts/TrajanPro3-Semibold.woff2') format('woff2');
-  font-display: swap;
+  font-display: block;
   font-weight: 600;
 }
 
 @font-face {
   font-family: '华光毛体行楷';
   src: url('/fonts/华光毛体行楷.woff2') format('woff2');
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: '方正小标宋简体';
   src: url('/fonts/方正小标宋简体.woff2') format('woff2');
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: '马善政毛笔楷书';
   src: url('/fonts/马善政毛笔楷书.woff2') format('woff2');
-  font-display: swap;
+  font-display: block;
 }
 
 /* ==========================================================================
