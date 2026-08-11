@@ -73,8 +73,8 @@ body {
 }
 
 @font-face {
-  font-family: '方正小标宋简体';
-  src: url('/fonts/方正小标宋简体.woff2') format('woff2');
+  font-family: '康熙字典体';
+  src: url('/fonts/康熙字典体.woff2') format('woff2');
   font-display: block;
 }
 
@@ -524,7 +524,7 @@ h3 a:hover {
 }
 
 .home-page .group-tag .tag-num {
-  font-family: '方正小标宋简体', 'Times New Roman', serif;
+  font-family: '康熙字典体', 'Times New Roman', serif;
   font-weight: 400;
   color: #888;
 }
