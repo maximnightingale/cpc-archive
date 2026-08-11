@@ -14,6 +14,7 @@ export default defineConfig(
     sitemap: {
       hostname: process.env.SITE_URL || "http://127.0.0.1:5173"
     },
+    appearance: false,
     markdown: {
       config: (md) => {
         md.use(imageFigures, {
@@ -21,6 +22,7 @@ export default defineConfig(
           lazy: true,
           dataType: true
         })
+        // 此处不再有任何 footnote 相关代码
       }
     },
     search: {
@@ -41,18 +43,9 @@ export default defineConfig(
             { text: '对比', link: '/differences' }
           ],
           sidebar: [
-            {
-              text: '中共十一大',
-              link: '/11'
-            },
-            {
-              text: '中共十二大',
-              link: '/12'
-            },
-            {
-              text: '中共十三大',
-              link: '/13'
-            }
+            { text: '中共十一大', link: '/11' },
+            { text: '中共十二大', link: '/12' },
+            { text: '中共十三大', link: '/13' }
           ],
           socialLinks: [
             { icon: 'github', link: 'https://github.com/maximnightingale/cpc-archive' }

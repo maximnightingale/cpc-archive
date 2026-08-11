@@ -1,15 +1,20 @@
 ---
 sidebar: false
 navbar: false
+next: false
 ---
 
 <div class="home-page">
+  <div class="header">
+    <p class="quote">伟大的、光荣的、正确的中国共产党万岁！<br>伟大的、光荣的、英雄的中国人民万岁！</p>
+    <p class="quote-author">——习近平</p>
+  </div>
   <div class="header">
     <p>自中共十一大以来的资料整理</p>
   </div>
 
   <div class="group">
-    <div class="group-tag">壹 · 1977—1992</div>
+    <div class="group-tag"><span class="tag-num">壹</span> · 1977—1992</div>
     <div class="group-label">建设有中国特色的社会主义</div>
     <div class="links">
       <a href="./11">中共十一大</a>
@@ -19,7 +24,7 @@ navbar: false
   </div>
 
   <div class="group">
-    <div class="group-tag">贰 · 1992—2012</div>
+    <div class="group-tag"><span class="tag-num">贰</span> · 1992—2012</div>
     <div class="group-label">把建设有中国特色社会主义事业全面推向二十一世纪</div>
     <div class="links">
       <a href="./14">中共十四大</a>
@@ -30,7 +35,7 @@ navbar: false
   </div>
 
   <div class="group">
-    <div class="group-tag">叁 · 2012—</div>
+    <div class="group-tag"><span class="tag-num">叁</span> · 2012—</div>
     <div class="group-label">中国特色社会主义进入新时代</div>
     <div class="links">
       <a href="./18">中共十八大</a>

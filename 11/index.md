@@ -1,4 +1,5 @@
 ---
+pageClass: index-page
 prev: false
 next:
   text: 十一大上的政治报告

@@ -1,18 +1,44 @@
 /* ==========================================================================
-   基础配置
+   全局基础
    ========================================================================== */
 
+/* 移除元素点击时的浏览器默认高亮 */
+a,
+button,
+.DocSearch-Button {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* 背景与全局变量 */
 body {
-  background-color: #fafafa;
+  background-color: #f0ece3;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+  background-attachment: fixed;
+  background-repeat: repeat;
   font-family: 'Times New Roman', 'Noto Serif SC', serif;
 }
 
 :root {
-  --vp-header-anchor-symbol: ''
+  --vp-header-anchor-symbol: '';
+  /* 色调统一 */
+  --vp-c-bg: #f0ece3;
+  --vp-c-bg-alt: #f0ece3;
+  --vp-c-bg-elv: #f0ece3;
+  --vp-c-bg-soft: #f0ece3;
+  --vp-nav-bg-color: #f0ece3;
+  --vp-nav-screen-bg-color: #f0ece3;
+  --vp-sidebar-bg-color: #f0ece3;
+  --vp-local-nav-bg-color: #f0ece3;
+  /* 搜索弹窗与遮罩 */
+  --vp-backdrop-bg-color: rgba(40, 36, 30, 0.45);
+  --vp-local-search-bg: #f0ece3;
+  --vp-local-search-result-border: rgba(0, 0, 0, 0.15);
 }
 
 /* ==========================================================================
-   字形
+   字体
    ========================================================================== */
 
 @font-face {
@@ -27,8 +53,39 @@ body {
   font-display: swap;
 }
 
+@font-face {
+  font-family: '方正新舒体';
+  src: url('/fonts/方正新舒体.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Trajan Pro';
+  src: url('/fonts/TrajanPro3-Semibold.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: '华光毛体行楷';
+  src: url('/fonts/华光毛体行楷.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: '方正小标宋简体';
+  src: url('/fonts/方正小标宋简体.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: '马善政毛笔楷书';
+  src: url('/fonts/马善政毛笔楷书.woff2') format('woff2');
+  font-display: swap;
+}
+
 /* ==========================================================================
-   正文
+   正文与排版
    ========================================================================== */
 
 .vp-doc p {
@@ -36,6 +93,7 @@ body {
   line-height: 1.6;
 }
 
+/* 正文字体 */
 .vp-doc p,
 .vp-doc h1,
 .vp-doc h2,
@@ -53,12 +111,12 @@ body {
    标题
    ========================================================================== */
 
-/* 一级标题 */
+/* 一级标题居中 */
 .vp-doc h1 {
   text-align: center;
 }
 
-/* 副标题 */
+/* h1 后的副标题（em） */
 .vp-doc h1 ~ p:has(em) {
   text-align: center;
   font-size: 0.85rem;
@@ -68,14 +126,19 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* 二级标题 */
+/* 二级标题顶部边框 */
 .vp-doc h2 {
   margin: 2rem 0 0;
   padding-top: 24px;
-  border-top-width: 1px;
+  border-top: 1px solid rgba(0, 0, 0, 0.18) !important;
 }
 
-/* 粗体 */
+/* 子文件夹 index 页面的二级标题 */
+.index-page .vp-doc h2 {
+  font-family: '马善政毛笔楷书', '仓耳今楷03-W03', 'Times New Roman', serif !important;
+}
+
+/* 标题与粗体字重、描边 */
 .vp-doc h1,
 .vp-doc h2,
 .vp-doc h3,
@@ -110,7 +173,12 @@ h3 a:hover {
    引用与分隔
    ========================================================================== */
 
-/* 引用块 */
+/* 块引用 */
+.vp-doc blockquote {
+  border-left-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+/* 偏移引用（紧接前文） */
 .vp-doc blockquote.blockquote-offset {
   margin-top: -1em;
   margin-bottom: 0;
@@ -118,7 +186,9 @@ h3 a:hover {
 
 /* 水平分隔线 */
 .vp-doc hr {
-  margin: 2px 0;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.15) !important;
+  margin: 20px 0 !important;
 }
 
 /* ==========================================================================
@@ -141,7 +211,7 @@ h3 a:hover {
 }
 
 .vp-doc li::before {
-  content: "·";
+  content: '·';
   position: absolute;
   left: 0.2em;
   color: #bbb;
@@ -165,7 +235,7 @@ h3 a:hover {
 }
 
 .vp-doc ul ul li::before {
-  content: "◦";
+  content: '◦';
   font-size: 1rem;
   color: #ccc;
 }
@@ -196,32 +266,147 @@ h3 a:hover {
    导航栏
    ========================================================================== */
 
-/* 导航栏标题：隐藏默认文本，替换为符号 */
 .VPNavBarTitle .title {
   font-size: 0 !important;
 }
 
 .VPNavBarTitle .title::before {
-  content: "☭";
+  content: '☭';
   font-size: 3rem;
   font-weight: 600;
 }
 
 /* ==========================================================================
-   辅助类
+   搜索框
+   ========================================================================== */
+
+/* 搜索按钮边框与背景 */
+.DocSearch-Button {
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 4px !important;
+  background-color: rgba(240, 236, 227, 0.8) !important;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+  transition: all 0.2s ease !important;
+}
+
+.DocSearch-Button:hover {
+  border-color: rgba(0, 0, 0, 0.25) !important;
+  background-color: rgba(240, 236, 227, 0.95) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 快捷键标签 */
+.DocSearch-Button-Key {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+  font-family: 'Times New Roman', serif !important;
+}
+
+/* ==========================================================================
+   搜索弹窗
+   ========================================================================== */
+
+/* 遮罩层 */
+.VPLocalSearchBox .backdrop {
+  background: rgba(40, 36, 30, 0.45) !important;
+}
+
+/* 弹窗主体 */
+.VPLocalSearchBox .shell {
+  background: #f0ece3 !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* 搜索输入栏 */
+.VPLocalSearchBox .search-bar {
+  border-color: rgba(0, 0, 0, 0.18) !important;
+  background: rgba(255, 255, 255, 0.4) !important;
+}
+
+.VPLocalSearchBox .search-bar:focus-within {
+  border-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* 搜索结果项 */
+.VPLocalSearchBox .result {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  background: #f0ece3 !important;
+}
+
+.VPLocalSearchBox .result:hover,
+.VPLocalSearchBox .result.selected {
+  border-color: rgba(0, 0, 0, 0.25) !important;
+  background: rgba(0, 0, 0, 0.03) !important;
+  box-shadow: none !important;
+}
+
+.VPLocalSearchBox .result:focus,
+.VPLocalSearchBox .result:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* 隐藏详细模式渐变遮罩 */
+.VPLocalSearchBox .excerpt-gradient-top,
+.VPLocalSearchBox .excerpt-gradient-bottom {
+  display: none !important;
+  height: 0 !important;
+  opacity: 0 !important;
+}
+
+/* 详细模式内容区 */
+.VPLocalSearchBox .excerpt :deep(.vp-doc) {
+  background: transparent !important;
+}
+
+.VPLocalSearchBox .excerpt :deep(img) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.VPLocalSearchBox .excerpt :deep(ul),
+.VPLocalSearchBox .excerpt :deep(ol),
+.VPLocalSearchBox .excerpt :deep(blockquote) {
+  background: transparent !important;
+}
+
+/* ==========================================================================
+   分页导航
+   ========================================================================== */
+
+.prev-next {
+  border-top: 1px solid rgba(0, 0, 0, 0.18) !important;
+}
+
+.pager-link {
+  border: 1px solid rgba(0, 0, 0, 0.18) !important;
+  border-radius: 4px !important;
+  transition: border-color 0.2s, background-color 0.2s !important;
+}
+
+.pager-link:hover {
+  border-color: rgba(0, 0, 0, 0.35) !important;
+  background-color: rgba(0, 0, 0, 0.02) !important;
+}
+
+/* ==========================================================================
+   其他
    ========================================================================== */
 
 /* 署名 */
-.sig-block-a {
-  display: flex;
-  justify-content: flex-end;
-  margin: 0;
-  padding: 0;
-}
-
+.sig-block-a,
 .sig-block-b {
   display: flex;
   justify-content: flex-end;
+}
+
+.sig-block-a {
+  margin: 0;
+  padding: 0;
 }
 
 .sig-content {
@@ -243,7 +428,7 @@ h3 a:hover {
   font-size: 1.25rem;
 }
 
-/* 文本对齐类 */
+/* 文本对齐 */
 .text-center {
   text-align: center;
 }
@@ -259,16 +444,21 @@ h3 a:hover {
 
 .home-page {
   max-width: 720px;
-  margin: 40px auto;
-  padding: 0 24px;
+  margin: 0 auto 48px;
+  padding: 8px 24px 0;
   color: #2a2a2a;
+}
+
+/* 首页内容区顶部补偿 */
+.VPDoc:not(.has-sidebar) .container {
+  padding-top: 0;
 }
 
 .home-page .VPLocalNav {
   display: none !important;
 }
 
-/* 说明文字 */
+/* 顶部说明文字 */
 .home-page .header {
   text-align: center;
   padding-bottom: 8px;
@@ -283,33 +473,70 @@ h3 a:hover {
   font-family: 'Times New Roman', serif;
 }
 
+/* 引言区域 */
+.home-page .header:first-child {
+  padding: 24px 0;
+  margin-bottom: 0;
+}
+
+/* 引言 */
+.home-page .quote {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #111 !important;
+  line-height: 2 !important;
+  margin: 0 0 10px !important;
+  font-family: '方正新舒体', 'Times New Roman', serif !important;
+  letter-spacing: 0.08em !important;
+  -webkit-text-stroke: 0.6px !important;
+}
+
+/* 引言署名 */
+.home-page .quote-author {
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  color: #333 !important;
+  text-align: center !important;
+  margin: 4px 0 0 !important;
+  font-family: '方正新舒体', 'Times New Roman', serif !important;
+  letter-spacing: 0.1em !important;
+  -webkit-text-stroke: 0.6px !important;
+}
+
 /* 分组容器 */
 .home-page .group {
   padding: 20px 0;
   margin-bottom: 12px;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .home-page .group:last-of-type {
   border-bottom: none;
 }
 
-/* 分组标签 */
+/* 分组标签（时间） */
 .home-page .group-tag {
-  font-size: 0.7rem;
-  color: #999;
-  letter-spacing: 0.08em;
-  font-family: 'Times New Roman', serif;
+  font-size: 0.95rem;
+  color: #666;
+  letter-spacing: 0.18em;
+  font-family: 'Trajan Pro', 'Times New Roman', serif;
+  margin-bottom: 4px;
 }
 
-/* 分组标题 */
-.home-page .group-label {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.home-page .group-tag .tag-num {
+  font-family: '方正小标宋简体', 'Times New Roman', serif;
+  font-weight: 400;
   color: #888;
-  font-family: 'Times New Roman', serif;
-  margin-bottom: 6px;
+}
+
+.home-page .group-label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #1a1a1a;
+  font-family: '华光毛体行楷', 'Times New Roman', serif;
+  margin-bottom: 14px;
+  line-height: 1.4;
 }
 
 /* 链接列表 */
@@ -322,8 +549,8 @@ h3 a:hover {
 
 .home-page .links a {
   display: inline-block;
-  color: #555;
-  font-size: 1rem;
+  color: #888;
+  font-size: 0.85rem;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: color 0.15s, border-color 0.15s;
@@ -333,8 +560,8 @@ h3 a:hover {
 }
 
 .home-page .links a:hover {
-  color: #222;
-  border-bottom-color: #aaa;
+  color: #555;
+  border-bottom-color: #bbb;
 }
 
 /* 页脚 */
@@ -346,4 +573,28 @@ h3 a:hover {
   margin-top: 56px;
   padding-top: 8px;
   font-family: 'Times New Roman', serif;
+}
+
+/* ==========================================================================
+   侧边栏与大纲
+   ========================================================================== */
+
+.VPSidebar {
+  border-right: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.VPDoc.has-aside .aside {
+  border-left: 2px solid rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================================================
+   纹理透底
+   ========================================================================== */
+
+.vp-doc {
+  background: transparent;
+}
+
+.VPDoc.has-sidebar .content {
+  background: transparent;
 }
