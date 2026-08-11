@@ -39,44 +39,44 @@ body {
 
 @font-face {
   font-family: '仓耳今楷03-W03';
-  src: url('../fonts/仓耳今楷03-W03.ttf') format('truetype');
+  src: url('/fonts/仓耳今楷03-W03.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
   font-family: '仓耳今楷04-W04';
-  src: url('../fonts/仓耳今楷04-W04.ttf') format('truetype');
+  src: url('/fonts/仓耳今楷04-W04.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
   font-family: '方正新舒体';
-  src: url('../fonts/方正新舒体.woff2') format('woff2');
+  src: url('/fonts/方正新舒体.woff2') format('woff2');
   font-display: block;
 }
 
 @font-face {
   font-family: 'Trajan Pro';
-  src: url('../fonts/TrajanPro3-Semibold.woff2') format('woff2');
+  src: url('/fonts/TrajanPro3-Semibold.woff2') format('woff2');
   font-display: block;
   font-weight: 600;
 }
 
 @font-face {
   font-family: '华光毛体行楷';
-  src: url('../fonts/华光毛体行楷.woff2') format('woff2');
+  src: url('/fonts/华光毛体行楷.woff2') format('woff2');
   font-display: block;
 }
 
 @font-face {
   font-family: '康熙字典体';
-  src: url('../fonts/康熙字典体.woff2') format('woff2');
+  src: url('/fonts/康熙字典体.woff2') format('woff2');
   font-display: block;
 }
 
 @font-face {
   font-family: '马善政毛笔楷书';
-  src: url('../fonts/马善政毛笔楷书.woff2') format('woff2');
+  src: url('/fonts/马善政毛笔楷书.woff2') format('woff2');
   font-display: block;
 }
 
