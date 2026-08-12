@@ -3,9 +3,7 @@ import imageFigures from 'markdown-it-image-figures'
 import { defineLangConfig, withLangSearch } from 'vitepress-lang'
 import { back2topPlugin } from 'vitepress-plugin-back2top'
 
-const useCDN = process.env.USE_CDN === 'true'
 const basePath = process.env.BASE_PATH || '/'
-const cdnBase = 'https://cdn.jsdelivr.net/gh/maximnightingale/cpc-archive@gh-pages'
 
 const fontPreloads = [
   ['link', { rel: 'prefetch', href: '/fonts/方正新舒体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
@@ -20,13 +18,7 @@ export default defineConfig(
     base: basePath,
     title: "cpc-archive",
     description: "整理自中共十一大以来历届党的相关会议资料",
-    head: [
-      ['script', { type: 'text/javascript' }, `
-        console.log("useCDN:", ${useCDN});
-        console.log("cdnBase:", "${cdnBase}");
-      `],
-      ...fontPreloads
-    ],
+    head: fontPreloads,
     sitemap: {
       hostname: process.env.SITE_URL || "http://127.0.0.1:5173"
     },
@@ -75,21 +67,7 @@ export default defineConfig(
     },
     vite: {
       plugins: [
-        back2topPlugin(),
-        {
-          name: 'cdn-replacer',
-          generateBundle(options, bundle) {
-            if (!useCDN) return;
-            console.log('🔥 generateBundle called!');
-            for (const [fileName, chunk] of Object.entries(bundle)) {
-              if (fileName.endsWith('.html') && chunk.type === 'asset') {
-                let source = chunk.source.toString();
-                source = source.replace(/\/(assets|fonts|img)\//g, `${cdnBase}/$1/`);
-                chunk.source = source;
-              }
-            }
-          }
-        }
+        back2topPlugin()
       ]
     }
   })
