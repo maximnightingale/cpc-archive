@@ -7,13 +7,7 @@ const useCDN = process.env.USE_CDN === 'true'
 const basePath = process.env.BASE_PATH || '/'
 const cdnBase = 'https://cdn.jsdelivr.net/gh/maximnightingale/cpc-archive@gh-pages'
 
-const fontPreloads = useCDN ? [
-  ['link', { rel: 'prefetch', href: `${cdnBase}/fonts/%E6%96%B9%E6%AD%A3%E6%96%B0%E8%88%92%E4%BD%93.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'prefetch', href: `${cdnBase}/fonts/TrajanPro3-Semibold.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'prefetch', href: `${cdnBase}/fonts/%E5%8D%8E%E5%85%89%E6%AF%9B%E4%BD%93%E8%A1%8C%E6%A5%B7.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'prefetch', href: `${cdnBase}/fonts/%E5%BA%B7%E7%86%99%E5%AD%97%E5%85%B8%E4%BD%93.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'prefetch', href: `${cdnBase}/fonts/%E9%A9%AC%E5%96%84%E6%94%BF%E6%AF%9B%E7%AC%94%E6%A5%B7%E4%B9%A6.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }]
-] : [
+const fontPreloads = [
   ['link', { rel: 'prefetch', href: '/fonts/方正新舒体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
   ['link', { rel: 'prefetch', href: '/fonts/TrajanPro3-Semibold.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
   ['link', { rel: 'prefetch', href: '/fonts/华光毛体行楷.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
@@ -82,14 +76,18 @@ export default defineConfig(
     vite: {
       plugins: [
         back2topPlugin(),
-        // 自定义插件：强制替换 HTML 中的资源路径为 CDN
         {
           name: 'cdn-replacer',
-          transformIndexHtml(html) {
-            console.log('🔥 transformIndexHtml called!');
-            if (!useCDN) return html
-            // 替换所有 /assets/、/fonts/、/img/ 开头的路径
-            return html.replace(/\/(assets|fonts|img)\//g, `${cdnBase}/$1/`)
+          generateBundle(options, bundle) {
+            if (!useCDN) return;
+            console.log('🔥 generateBundle called!');
+            for (const [fileName, chunk] of Object.entries(bundle)) {
+              if (fileName.endsWith('.html') && chunk.type === 'asset') {
+                let source = chunk.source.toString();
+                source = source.replace(/\/(assets|fonts|img)\//g, `${cdnBase}/$1/`);
+                chunk.source = source;
+              }
+            }
           }
         }
       ]
