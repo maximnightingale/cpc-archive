@@ -533,6 +533,10 @@ h3 a:hover {
   font-family: '华光毛体行楷', 'Times New Roman', serif;
   margin-bottom: 14px;
   line-height: 1.4;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 /* 链接列表 */
