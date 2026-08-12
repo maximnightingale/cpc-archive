@@ -4,15 +4,15 @@ import { defineLangConfig, withLangSearch } from 'vitepress-lang'
 import { back2topPlugin } from 'vitepress-plugin-back2top'
 
 const isGitHubActions = process.env.GITHUB_ACTIONS === 'true'
-const cdnBase = 'https://cdn.jsdelivr.net/gh/maximnightingale/cpc-archive@gh-pages'
+const cdnBase = isGitHubActions ? 'https://cdn.jsdelivr.net/gh/maximnightingale/cpc-archive@gh-pages' : ''
 const basePath = process.env.BASE_URL || (process.env.GITHUB_ACTIONS === 'true' ? '/cpc-archive/' : '/')
 
 const fontPreloads = [
-  ['link', { rel: 'preload', href: `${cdnBase}/fonts/%E6%96%B9%E6%AD%A3%E6%96%B0%E8%88%92%E4%BD%93.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: `${cdnBase}/fonts/TrajanPro3-Semibold.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: `${cdnBase}/fonts/%E5%8D%8E%E5%85%89%E6%AF%9B%E4%BD%93%E8%A1%8C%E6%A5%B7.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: `${cdnBase}/fonts/%E6%96%B9%E6%AD%A3%E5%B0%8F%E6%A0%87%E5%AE%8B%E7%AE%80%E4%BD%93.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: `${cdnBase}/fonts/%E9%A9%AC%E5%96%84%E6%94%BF%E6%AF%9B%E7%AC%94%E6%A5%B7%E4%B9%A6.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }]
+  ['link', { rel: 'preload', href: cdnBase ? `${cdnBase}/fonts/%E6%96%B9%E6%AD%A3%E6%96%B0%E8%88%92%E4%BD%93.woff2` : '/fonts/方正新舒体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'preload', href: cdnBase ? `${cdnBase}/fonts/TrajanPro3-Semibold.woff2` : '/fonts/TrajanPro3-Semibold.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'preload', href: cdnBase ? `${cdnBase}/fonts/%E5%8D%8E%E5%85%89%E6%AF%9B%E4%BD%93%E8%A1%8C%E6%A5%B7.woff2` : '/fonts/华光毛体行楷.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'preload', href: cdnBase ? `${cdnBase}/fonts/%E6%96%B9%E6%AD%A3%E5%B0%8F%E6%A0%87%E5%AE%8B%E7%AE%80%E4%BD%93.woff2` : '/fonts/方正小标宋简体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'preload', href: cdnBase ? `${cdnBase}/fonts/%E9%A9%AC%E5%96%84%E6%94%BF%E6%AF%9B%E7%AC%94%E6%A5%B7%E4%B9%A6.woff2` : '/fonts/马善政毛笔楷书.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }]
 ]
 
 export default defineConfig(
