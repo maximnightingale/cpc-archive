@@ -86,6 +86,7 @@ export default defineConfig(
         {
           name: 'cdn-replacer',
           transformIndexHtml(html) {
+            console.log('🔥 transformIndexHtml called!');
             if (!useCDN) return html
             // 替换所有 /assets/、/fonts/、/img/ 开头的路径
             return html.replace(/\/(assets|fonts|img)\//g, `${cdnBase}/$1/`)
