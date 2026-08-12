@@ -489,14 +489,23 @@ h3 a:hover {
 
 /* 引言署名 */
 .home-page .quote-author {
-  font-size: 1.2rem !important;
-  font-weight: 700 !important;
-  color: #333 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   text-align: center !important;
-  margin: 4px 0 0 !important;
-  font-family: '方正新舒体', 'Times New Roman', serif !important;
-  letter-spacing: 0.1em !important;
-  -webkit-text-stroke: 0.6px !important;
+  margin: 8px 0 0 !important;
+  font-size: 1rem !important;
+}
+
+.home-page .quote-author img {
+  height: 2rem;
+  width: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 /* 分组容器 */
