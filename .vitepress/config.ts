@@ -8,17 +8,17 @@ const basePath = process.env.BASE_PATH || '/'
 const cdnBase = 'https://cdn.jsdelivr.net/gh/maximnightingale/cpc-archive@gh-pages'
 
 const fontPreloads = useCDN ? [
-  ['link', { rel: 'preload', href: `${cdnBase}/fonts/%E6%96%B9%E6%AD%A3%E6%96%B0%E8%88%92%E4%BD%93.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: `${cdnBase}/fonts/TrajanPro3-Semibold.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: `${cdnBase}/fonts/%E5%8D%8E%E5%85%89%E6%AF%9B%E4%BD%93%E8%A1%8C%E6%A5%B7.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: `${cdnBase}/fonts/%E5%BA%B7%E7%86%99%E5%AD%97%E5%85%B8%E4%BD%93.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: `${cdnBase}/fonts/%E9%A9%AC%E5%96%84%E6%94%BF%E6%AF%9B%E7%AC%94%E6%A5%B7%E4%B9%A6.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }]
+  ['link', { rel: 'prefetch', href: `${cdnBase}/fonts/%E6%96%B9%E6%AD%A3%E6%96%B0%E8%88%92%E4%BD%93.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'prefetch', href: `${cdnBase}/fonts/TrajanPro3-Semibold.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'prefetch', href: `${cdnBase}/fonts/%E5%8D%8E%E5%85%89%E6%AF%9B%E4%BD%93%E8%A1%8C%E6%A5%B7.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'prefetch', href: `${cdnBase}/fonts/%E5%BA%B7%E7%86%99%E5%AD%97%E5%85%B8%E4%BD%93.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'prefetch', href: `${cdnBase}/fonts/%E9%A9%AC%E5%96%84%E6%94%BF%E6%AF%9B%E7%AC%94%E6%A5%B7%E4%B9%A6.woff2`, as: 'font', type: 'font/woff2', crossorigin: '' }]
 ] : [
-  ['link', { rel: 'preload', href: '/fonts/方正新舒体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: '/fonts/TrajanPro3-Semibold.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: '/fonts/华光毛体行楷.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: '/fonts/康熙字典体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'preload', href: '/fonts/马善政毛笔楷书.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }]
+  ['link', { rel: 'prefetch', href: '/fonts/方正新舒体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'prefetch', href: '/fonts/TrajanPro3-Semibold.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'prefetch', href: '/fonts/华光毛体行楷.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'prefetch', href: '/fonts/康熙字典体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+  ['link', { rel: 'prefetch', href: '/fonts/马善政毛笔楷书.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }]
 ]
 
 export default defineConfig(
@@ -26,7 +26,13 @@ export default defineConfig(
     base: basePath,
     title: "cpc-archive",
     description: "整理自中共十一大以来历届党的相关会议资料",
-    head: fontPreloads,
+    head: [
+      ['script', { type: 'text/javascript' }, `
+        console.log("useCDN:", ${useCDN});
+        console.log("cdnBase:", "${cdnBase}");
+      `],
+      ...fontPreloads
+    ],
     sitemap: {
       hostname: process.env.SITE_URL || "http://127.0.0.1:5173"
     },
@@ -81,8 +87,6 @@ export default defineConfig(
         experimental: {
           renderBuiltUrl(filename, { hostType }) {
             if (useCDN) {
-              // JS/CSS/Font 均使用 CDN 绝对路径
-              // 对于字体，需要确保路径格式与 public/ 目录结构一致
               return `${cdnBase}/${filename}`
             }
             return filename
