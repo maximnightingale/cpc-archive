@@ -81,18 +81,17 @@ export default defineConfig(
     },
     vite: {
       plugins: [
-        back2topPlugin()
-      ],
-      build: {
-        experimental: {
-          renderBuiltUrl(filename, { hostType }) {
-            if (useCDN) {
-              return `${cdnBase}/${filename}`
-            }
-            return filename
+        back2topPlugin(),
+        // 自定义插件：强制替换 HTML 中的资源路径为 CDN
+        {
+          name: 'cdn-replacer',
+          transformIndexHtml(html) {
+            if (!useCDN) return html
+            // 替换所有 /assets/、/fonts/、/img/ 开头的路径
+            return html.replace(/\/(assets|fonts|img)\//g, `${cdnBase}/$1/`)
           }
         }
-      }
+      ]
     }
   })
 )
