@@ -4,7 +4,7 @@ import { defineLangConfig, withLangSearch } from 'vitepress-lang'
 import { back2topPlugin } from 'vitepress-plugin-back2top'
 
 const isGitHubActions = process.env.GITHUB_ACTIONS === 'true'
-const basePath = isGitHubActions ? '/cpc-archive/' : '/'
+const basePath = process.env.BASE_URL || (process.env.GITHUB_ACTIONS === 'true' ? '/cpc-archive/' : '/')
 
 const fontPreloads = [
   ['link', { rel: 'preload', href: '../fonts/方正新舒体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],

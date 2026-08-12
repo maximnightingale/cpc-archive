@@ -55,6 +55,7 @@ jobs:
         run: pnpm run build
         env:
           SITE_URL: https://maximnightingale.github.io/cpc-archive/
+          BASE_URL: https://cdn.jsdelivr.net/gh/maximnightingale/cpc-archive@main/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
