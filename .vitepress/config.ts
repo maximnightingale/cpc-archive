@@ -6,6 +6,7 @@ import { back2topPlugin } from 'vitepress-plugin-back2top'
 const basePath = process.env.BASE_PATH || '/'
 
 const fontPreloads = [
+  ['link', { rel: 'prefetch', href: '/img/signature.svg', as: 'image' }],
   ['link', { rel: 'prefetch', href: '/fonts/方正新舒体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
   ['link', { rel: 'prefetch', href: '/fonts/TrajanPro3-Semibold.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
   ['link', { rel: 'prefetch', href: '/fonts/华光毛体行楷.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
