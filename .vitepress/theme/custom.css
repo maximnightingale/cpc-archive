@@ -468,46 +468,6 @@ h3 a:hover {
   margin: 0;
   font-family: 'Times New Roman', serif;
 }
-
-/* 引言区域 */
-.home-page .header:first-child {
-  padding: 24px 0;
-  margin-bottom: 0;
-}
-
-/* 引言 */
-.home-page .quote {
-  font-size: 1.5rem !important;
-  font-weight: 700 !important;
-  color: #111 !important;
-  line-height: 2 !important;
-  margin: 0 0 10px !important;
-  font-family: '方正新舒体', 'Times New Roman', serif !important;
-  letter-spacing: 0.08em !important;
-  -webkit-text-stroke: 0.6px !important;
-}
-
-/* 引言署名 */
-.home-page .quote-author {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  text-align: center !important;
-  margin: 8px 0 0 !important;
-  font-size: 1rem !important;
-}
-
-.home-page .quote-author img {
-  height: 2rem;
-  width: auto;
-  display: block;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
 /* 分组容器 */
 .home-page .group {
   padding: 20px 0;
@@ -594,6 +554,53 @@ h3 a:hover {
 
 .VPDoc.has-aside .aside {
   border-left: 2px solid rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================================================
+   对比页
+   ========================================================================== */
+
+/* 引言区域 */
+.differences .header {
+  text-align: center;
+}
+
+.differences .header:first-child {
+  padding: 24px 0;
+  margin-bottom: 0;
+}
+
+/* 引言 */
+.differences .quote {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #111 !important;
+  line-height: 2 !important;
+  margin: 0 0 10px !important;
+  font-family: '方正新舒体', 'Times New Roman', serif !important;
+  letter-spacing: 0.08em !important;
+  -webkit-text-stroke: 0.6px !important;
+}
+
+/* 引言署名 */
+.differences .quote-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-align: center !important;
+  margin: 8px 0 0 !important;
+  font-size: 1rem !important;
+}
+
+.differences .quote-author img {
+  height: 2rem;
+  width: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 /* ==========================================================================
