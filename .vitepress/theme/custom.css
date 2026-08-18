@@ -37,6 +37,16 @@ body {
   --vp-local-search-result-border: rgba(0, 0, 0, 0.15);
 }
 
+@media (min-width: 768px) {
+  .DocSearch-Button {
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+  .DocSearch-Button .DocSearch-Button-Keys {
+    display: flex !important;
+  }
+}
+
 @font-face {
   font-family: '仓耳今楷03-W03';
   src: url('/fonts/仓耳今楷03-W03.woff2') format('woff2');
