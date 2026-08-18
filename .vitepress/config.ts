@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import imageFigures from 'markdown-it-image-figures'
 import { defineLangConfig, withLangSearch } from 'vitepress-lang'
 import { back2topPlugin } from 'vitepress-plugin-back2top'
+import Font from 'vite-plugin-font'
 
 const basePath = process.env.BASE_PATH || '/'
 
@@ -68,7 +69,8 @@ export default defineConfig(
     },
     vite: {
       plugins: [
-        back2topPlugin()
+        back2topPlugin(),
+        Font.vite()
       ]
     }
   })

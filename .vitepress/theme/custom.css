@@ -39,13 +39,13 @@ body {
 
 @font-face {
   font-family: '仓耳今楷03-W03';
-  src: url('/fonts/仓耳今楷03-W03.ttf') format('truetype');
+  src: url('/fonts/仓耳今楷03-W03.woff2') format('woff2');
   font-display: swap;
 }
 
 @font-face {
   font-family: '仓耳今楷04-W04';
-  src: url('/fonts/仓耳今楷04-W04.ttf') format('truetype');
+  src: url('/fonts/仓耳今楷04-W04.woff2') format('woff2');
   font-display: swap;
 }
 
