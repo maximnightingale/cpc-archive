@@ -4,7 +4,7 @@ export async function onRequest(context) {
   if (!contentType.includes('text/html') && !contentType.includes('text/css')) {
     return response;
   }
-  const CDN_BASE = 'https://cdn.jsdmirror.net/gh/maximnightingale/cpc-archive@gh-pages';
+  const CDN_BASE = 'https://cdn.jsdmirror.com/gh/maximnightingale/cpc-archive@gh-pages';
   if (contentType.includes('text/css')) {
     const text = await response.text();
     const replaced = text.replace(/\/fonts\//g, `${CDN_BASE}/fonts/`);
