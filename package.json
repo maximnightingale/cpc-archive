@@ -8,12 +8,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vitepress dev",
-    "build": "pnpm tsx font.ts && vitepress build",
+    "build": "vitepress build",
     "preview": "vitepress preview"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",
-    "cn-font-split": "^7.4.3",
     "markdown-it-image-figures": "^2.1.1",
     "tsx": "^4.23.13",
     "typescript": "^7.0.2",
