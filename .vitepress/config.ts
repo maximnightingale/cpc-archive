@@ -5,21 +5,11 @@ import { back2topPlugin } from 'vitepress-plugin-back2top'
 
 const basePath = process.env.BASE_PATH || '/'
 
-const fontPreloads = [
-  ['link', { rel: 'prefetch', href: '/img/signature.svg', as: 'image' }],
-  ['link', { rel: 'prefetch', href: '/fonts/方正新舒体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'prefetch', href: '/fonts/TrajanPro3-Semibold.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'prefetch', href: '/fonts/华光毛体行楷.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'prefetch', href: '/fonts/康熙字典体.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
-  ['link', { rel: 'prefetch', href: '/fonts/马善政毛笔楷书.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }]
-]
-
 export default defineConfig(
   withLangSearch({
     base: basePath,
     title: "cpc-archive",
     description: "整理自中共十一大以来历届党的相关会议资料",
-    head: fontPreloads,
     sitemap: {
       hostname: process.env.SITE_URL || "http://127.0.0.1:5173"
     },

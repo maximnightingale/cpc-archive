@@ -1,3 +1,5 @@
+@import '/fonts/汇文仿宋/汇文仿宋.css';
+
 /* ==========================================================================
    全局基础
    ========================================================================== */
@@ -48,18 +50,6 @@ body {
 }
 
 @font-face {
-  font-family: '仓耳今楷03-W03';
-  src: url('/fonts/仓耳今楷03-W03.woff2') format('woff2');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: '仓耳今楷04-W04';
-  src: url('/fonts/仓耳今楷04-W04.woff2') format('woff2');
-  font-display: swap;
-}
-
-@font-face {
   font-family: '方正新舒体';
   src: url('/fonts/方正新舒体.woff2') format('woff2');
   font-display: block;
@@ -105,12 +95,9 @@ body {
 .vp-doc h2,
 .vp-doc h3,
 .vp-doc strong,
-.vp-doc b {
-  font-family: '仓耳今楷03-W03', 'Times New Roman', 'Noto Serif SC', serif;
-}
-
+.vp-doc b
 .sig-content > p {
-  font-family: '仓耳今楷04-W04', 'Times New Roman', 'Noto Serif SC', serif;
+  font-family: '汇文仿宋', 'Times New Roman', 'Noto Serif SC', serif;
 }
 
 /* ==========================================================================
