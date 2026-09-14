@@ -12,6 +12,11 @@ button,
   outline: none;
 }
 
+/* 注释除外 */
+a#fnref {
+  color: revert;
+}
+
 /* 背景与全局变量 */
 body {
   background-color: #f0ece3;
